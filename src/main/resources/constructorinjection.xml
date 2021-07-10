@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd"
+       xmlns:c="http://www.springframework.org/schema/c"
+>
+    <bean id="dateFormat" class="java.text.SimpleDateFormat">
+        <constructor-arg value="yyyy-MM-dd" />
+    </bean>
+
+    <bean class="org.ioc.example.constructor.injection.Engine" name="engine1">
+        <constructor-arg name="engineType" value="Petrol"/>
+        <constructor-arg name="warrentyInYears" value="2"/>
+        <constructor-arg>
+            <bean factory-bean="dateFormat" factory-method="parse">
+                <constructor-arg value="2021-06-22" />
+            </bean>
+        </constructor-arg>
+    </bean>
+
+    <bean class="org.ioc.example.constructor.injection.Engine" name="engine2">
+        <constructor-arg name="engineType" value="Diesel"/>
+        <constructor-arg name="warrentyInYears" value="2"/>
+        <constructor-arg>
+            <bean factory-bean="dateFormat" factory-method="parse">
+                <constructor-arg value="2021-05-01" />
+            </bean>
+        </constructor-arg>
+    </bean>
+
+
+    <bean class="org.ioc.example.constructor.injection.Car" name="car1">
+        <constructor-arg name="carName" value="i10"/>
+        <constructor-arg name="carPrice" value="540000.00"/>
+        <constructor-arg name="functionality">
+            <list>
+                <value>Power Window</value>
+                <value>Power Stearing</value>
+                <value>Automatic</value>
+                <value>SunRoof</value>
+                <value>Alloy Wheel</value>
+            </list>
+        </constructor-arg>
+        <constructor-arg name="engine" ref="engine1"/>
+    </bean>
+
+    <bean class="org.ioc.example.constructor.injection.Car" name="car2">
+        <constructor-arg name="carName" value="Swift"/>
+        <constructor-arg name="carPrice" value="730000.00"/>
+        <constructor-arg name="functionality">
+            <list>
+                <value>Power Window</value>
+                <value>Power Stearing</value>
+                <value>Automatic</value>
+                <value>SunRoof</value>
+                <value>Alloy Wheel</value>
+                <value>In built Music System</value>
+            </list>
+        </constructor-arg>
+        <constructor-arg name="engine" ref="engine2"/>
+    </bean>
+
+    <context:annotation-config/>
+</beans>

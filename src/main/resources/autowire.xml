@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:p="http://www.springframework.org/schema/p">
+
+    <bean class="org.ioc.example.auto.wire.Charger" id="charger" name="charger" p:voltage="12V"/>
+    <bean class="org.ioc.example.auto.wire.SIMCard" id="sim" name="sim" p:company="Airtel" p:generation="5G"/>
+
+    <bean class="org.ioc.example.auto.wire.Phone" id="phone1" name="phone1" p:phoneName="Nokia C6" autowire="constructor"/>
+
+    <context:annotation-config/>
+
+</beans>
