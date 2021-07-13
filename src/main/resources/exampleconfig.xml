@@ -10,6 +10,8 @@
     <bean class="org.ioc.example.auto.wire.AutoWireRunner" name="autowireex1" id="autowireex1"/>
     <bean class="org.ioc.example.annotation.auto.wire.AnnotationAutoWire" name="annoex1" id="annoex1"/>
     <bean class="org.ioc.example.stand.alone.collections.StandAloneCollection" name="standex1" id="standex1"/>
+    <bean class="org.ioc.example.stereotype.annotation.StereoTypeAnnotationExample1" name="stereo1" id="stereo1"/>
+    <bean class="org.ioc.example.java.configuration.JavaConfigurationExample" name="jcex1" id="jcex1"/>
     <bean class="org.example.App" name="app1" id="app1"/>
 
     <context:annotation-config/>

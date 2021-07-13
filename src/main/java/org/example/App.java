@@ -22,9 +22,10 @@ public class App
     //    @Qualifier("constructex1")
     //    @Qualifier("autowireex1")
     //    @Qualifier("standex1")
+    //    @Qualifier("stereo1")
 
     @Autowired
-    @Qualifier("annoex1")
+    @Qualifier("jcex1")
     private IIOCExamples example;
 
     public IIOCExamples getExample() {
